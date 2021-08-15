@@ -59,7 +59,7 @@ public class Main {
         }
     }
 
-    public static int sumarLista(List<Integer> lista){
+    public static Integer sumarLista(List<Integer> lista){
         var total = 0;
         for (var numero: lista){
             total += numero;

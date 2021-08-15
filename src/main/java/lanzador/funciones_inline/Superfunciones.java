@@ -41,7 +41,7 @@ public class Superfunciones {
             consumidor.aceptar(valor);
         }
     }
-    public static int reducir(List<Integer> valores, Integer identidad, FuncionBinaria funcionBinaria){
+    public static Integer reducir(List<Integer> valores, Integer identidad, FuncionBinaria funcionBinaria){
         var total = identidad;
         for (var valor: valores){
             total = funcionBinaria.aplicar(total, valor);
