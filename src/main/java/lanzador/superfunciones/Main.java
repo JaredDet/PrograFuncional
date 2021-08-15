@@ -27,6 +27,6 @@ public class Main {
         System.out.println(cuadrados);
         Superfunciones.consumir(cuadrados, new Impresor());
         var reducido = Superfunciones.reducir(cuadrados, 1, new Multiplicador());
-        System.out.println(reducido);
+        System.out.println("El total es:" + reducido);
     }
 }
