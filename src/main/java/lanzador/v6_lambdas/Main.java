@@ -27,7 +27,7 @@ public class Main {
                         filtrar(x -> x % 2 == 0).
                         transformar(x -> (int) (Math.pow(x, 2))).
                         actuar(x -> System.out.println(x)).
-                        reducir(0, (x, y) -> x));
+                        reducir(0, (x, y) -> x + y));
 
         new Flujo<>(List.of(1,2,3,4,5,6,7,8,9,10)).
                 filtrar(x -> x % 2 == 0).
