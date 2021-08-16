@@ -24,15 +24,18 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("El total es: " +
-                Flujo.proveer(10, () -> (int) (Math.random() * 1000)).
-                        filtrar(x -> x % 2 == 0).
-                        transformar(x -> (int) (Math.pow(x, 2))).
-                        actuar(x -> System.out.println(x)).
-                        reducir(0, (x, y) -> x + y));
+                Flujo.proveer(10, () -> (int) (Math.random() * 1000))
+                        .filtrar(x -> x % 2 == 0)
+                        .ordenar((x, y) -> {
+                            return (x < y) ? -1 : (x.equals(y)) ? 0 : 1;
+                        })
+                        .transformar(x -> (int) (Math.pow(x, 2)))
+                        .actuar(x -> System.out.println(x))
+                        .reducir(0, (x, y) -> x + y));
 
-        new Flujo<>(List.of(1,2,3,4,5,6,7,8,9,10)).
-                filtrar(x -> x % 2 == 0).
-                transformar(x -> (int) (Math.pow(x, 3))).
-                consumir(x -> System.out.println(x));
+        new Flujo<>(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+                .filtrar(x -> x % 2 == 0)
+                .transformar(x -> (int) (Math.pow(x, 3)))
+                .consumir(x -> System.out.println(x));
     }
 }

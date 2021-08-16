@@ -1,4 +1,4 @@
-package lanzador.v8_referencia_al_metodo;
+package lanzador.v8_referencia_a_metodos;
 
 public class NumberUtils {
 

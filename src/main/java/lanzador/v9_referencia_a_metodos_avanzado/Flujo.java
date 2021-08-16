@@ -1,6 +1,7 @@
-package lanzador.v8_referencia_al_metodo;
+package lanzador.v9_referencia_a_metodos_avanzado;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.*;
 
@@ -52,6 +53,12 @@ public class Flujo<T> {
         for (var valor : valores) {
             consumidor.accept(valor);
         }
+    }
+
+    public Flujo<T> ordenar(Comparator<T> comparador){
+        var listaOrdenada = new ArrayList<>(valores);
+        listaOrdenada.sort(comparador);
+        return new Flujo<>(listaOrdenada);
     }
 
     public T reducir(T identidad, BinaryOperator<T> operadorBinario) {

@@ -1,4 +1,4 @@
-package lanzador.v7_interfaces_funcionales_estandar;
+package lanzador.v8_referencia_a_metodos;
 
 import java.util.ArrayList;
 import java.util.Comparator;
