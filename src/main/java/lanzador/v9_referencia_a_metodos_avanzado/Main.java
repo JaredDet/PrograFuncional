@@ -10,7 +10,7 @@ public class Main {
     ¿QUÉ HACER?
 
     1.- Crear lista de enteros
-    2.- Filtrar primos
+    2.- Filtrar pares
     3.- Pasar los pares al cuadrado
     4.- Mostrar los cuadrados
     5.- sumar los cuadrados
