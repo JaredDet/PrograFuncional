@@ -1,6 +1,6 @@
-package lanzador.v5_flujo;
+package lanzador.v6_lambdas;
 
-import lanzador.v5_flujo.interfaces.*;
+import lanzador.v6_lambdas.interfaces.*;
 
 import java.util.ArrayList;
 import java.util.List;
