@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 public class Generar {
 
     public static void main(String[] args) {
-        
+
         //Función generadora
         var resultado =
                 Stream.of("Pedro", "Juan", "Diego")
@@ -18,11 +18,15 @@ public class Generar {
                         .collect(Collectors.toList());
         System.out.println(resultado + "\n");
 
-        /*Cuando se genera un Stream infinito, es necesario usar
-        la función limit para no generar un Stackover flow*/
+        /*
+            Cuando se genera un Stream infinito, es necesario usar
+            la función limit para no generar un Stackover flow
+        */
 
-        /*En el siguiente ejemplo se verá que la función limit limita el generador
-        y no las funciones siguientes*/
+        /*
+            En el siguiente ejemplo se verá que la función limit limita el generador
+            y no las funciones siguientes
+        */
 
         var resultado2 =
                 Stream.generate(() -> {
@@ -45,10 +49,12 @@ public class Generar {
                         .collect(Collectors.toList());
         System.out.println(resultado3 + "\n");
 
-        /*Se utiliza iterate para generar un Stream infinito donde
-        los valores, a partir del segundo, son el resultado de aplicar una
-        operación unaria al anterior. Se puede detener el generador con la
-        función limit o colocando un predicado como 2do argumento.*/
+        /*
+            Se utiliza iterate para generar un Stream infinito donde
+            los valores, a partir del segundo, son el resultado de aplicar una
+            operación unaria al anterior. Se puede detener el generador con la
+            función limit o colocando un predicado como 2do argumento.
+        */
 
         var resultado4 = Stream.iterate(1, x -> x * 5)
                 .limit(5)
