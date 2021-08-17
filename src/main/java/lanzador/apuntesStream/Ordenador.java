@@ -26,7 +26,7 @@ public class Ordenador {
 
         var resultado2 =
                 Stream.of("Baldomero", "Germán", "Ambrosio")
-                        .sorted(Comparator.naturalOrder())
+                        .sorted(Comparator.reverseOrder())
                         .limit(2)
                         .peek(System.out::println)
                         .collect(Collectors.toList());
