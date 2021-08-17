@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Transformar {
+public class Transformador {
 
-    public Transformar() {
+    public Transformador() {
 
         /*
             La función principal de transformación es la
@@ -70,7 +70,7 @@ public class Transformar {
     }
 
     public static void main(String[] args) {
-        new Transformar();
+        new Transformador();
     }
 }
 

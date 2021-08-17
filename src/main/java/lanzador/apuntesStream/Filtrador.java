@@ -3,7 +3,7 @@ package lanzador.apuntesStream;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Filtrar {
+public class Filtrador {
 
     public static void main(String[] args) {
 

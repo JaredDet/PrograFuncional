@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Generar {
+public class Generarador {
 
     public static void main(String[] args) {
 
