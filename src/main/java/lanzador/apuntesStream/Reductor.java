@@ -148,5 +148,6 @@ public class Reductor {
                 ).reduce(0,
                         (acumulador, estudiante) -> acumulador + estudiante.getEdad(),
                         Integer::sum);
+        System.out.println(resultado5);
     }
 }
