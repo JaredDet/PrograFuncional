@@ -72,15 +72,15 @@ public class Main {
         };
 
         System.out.println("El total es: " +
-                Flujo.proveer(10, proveedor).
-                        filtrar(predicado).
-                        transformar(funcion).
-                        actuar(consumidor).
-                        reducir(0, operadorBinario));
+                Flujo.proveer(10, proveedor)
+                        .filtrar(predicado)
+                        .transformar(funcion)
+                        .actuar(consumidor)
+                        .reducir(0, operadorBinario));
 
-        new Flujo<>(List.of(1,2,3,4,5,6,7,8,9,10)).
-                filtrar(predicado).
-                transformar(funcion).
-                consumir(consumidor);
+        new Flujo<>(List.of(1,2,3,4,5,6,7,8,9,10))
+                .filtrar(predicado)
+                .transformar(funcion)
+                .consumir(consumidor);
     }
 }
