@@ -31,7 +31,7 @@ public class Main {
                 .sorted()
                 .map(x -> (int) Math.pow(x, 2))
                 .map(Descripcion::new)
-                .peek(System.out::println)
+                .peek(x -> System.out.println(x + " "))
                 .map(Descripcion::getValor)
                 .mapToInt(x -> x)
                 .max()
