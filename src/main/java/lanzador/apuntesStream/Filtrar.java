@@ -78,6 +78,5 @@ public class Filtrar {
                 .takeWhile(x -> x % 2 == 0)
                 .collect(Collectors.toList());
         System.out.println("Los valores son: " + resultado6 + "\n");
-
     }
 }
