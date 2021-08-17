@@ -31,12 +31,12 @@ public class Main {
                 .sorted()
                 .map(x -> (int) Math.pow(x, 2))
                 .map(Descripcion::new)
-                .peek(x -> System.out.println(x + " "))
+                .peek(x -> System.out.print(x + " "))
                 .map(Descripcion::getValor)
                 .mapToInt(x -> x)
                 .max()
                 .ifPresentOrElse(
-                        System.out::println,
+                        x -> System.out.println("\n" + x),
                         () -> System.err.println("No hay máximo " +
                                 "porque el flujo está vacío")
                 );
