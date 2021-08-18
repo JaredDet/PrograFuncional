@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class UsoPrimos {
+public class UsoPrimo {
 
     public static void main(String[] args) {
         var resultado = generarPrimos();
