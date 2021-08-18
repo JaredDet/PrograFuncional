@@ -2,7 +2,6 @@ package lanzador.v11_streams;
 
 import lanzador.v10_optional.Descripcion;
 
-import java.util.Comparator;
 import java.util.Random;
 
 
