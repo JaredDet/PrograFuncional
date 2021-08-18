@@ -2,13 +2,13 @@ package primos;
 
 import java.util.List;
 import java.util.Random;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class UsoPrimo {
 
     public static void main(String[] args) {
         var resultado = generarPrimos();
-        System.out.println(resultado);
         System.out.println(descomponerEnFactoresPrimos(3000));
     }
 
@@ -37,24 +37,34 @@ public class UsoPrimo {
                 .collect(Collectors.toList());
     }
 
+    public static Predicate<Integer> filtrarPares() {
+
+        return x -> {
+            if (x == 2) {
+                return true;
+            }
+            return x % 2 != 0;
+        };
+    }
+
+    public static Predicate<Integer> filtrarImpares() {
+
+        return x -> {
+            for (int i = 3; i <= (int) Math.sqrt(x); i = i + 2) {
+                if (x % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        };
+    }
+
     public static List<Integer> generarPrimos() {
 
         return new Random().ints(100, 1, 50)
                 .filter(x -> x != 1)
-                .filter(x -> {
-                    if (x == 2) {
-                        return true;
-                    }
-                    return x % 2 != 0;
-                })
-                .filter(x -> {
-                    for (int i = 3; i <= (int) Math.sqrt(x); i = i + 2) {
-                        if (x % i == 0) {
-                            return false;
-                        }
-                    }
-                    return true;
-                })
+                .filter(filtrarPares()::test)
+                .filter(filtrarImpares()::test)
                 .boxed()
                 .sorted()
                 .distinct()
