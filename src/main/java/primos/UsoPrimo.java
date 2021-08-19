@@ -37,17 +37,12 @@ public class UsoPrimo {
                 .collect(Collectors.toList());
     }
 
-    public static Predicate<Integer> filtrarPares() {
+    private static Predicate<Integer> filtrarPares() {
 
-        return x -> {
-            if (x == 2) {
-                return true;
-            }
-            return x % 2 != 0;
-        };
+        return x -> (x == 2) || (x % 2 != 0);
     }
 
-    public static Predicate<Integer> filtrarImpares() {
+    private static Predicate<Integer> filtrarImpares() {
 
         return x -> {
             for (int i = 3; i <= (int) Math.sqrt(x); i = i + 2) {
