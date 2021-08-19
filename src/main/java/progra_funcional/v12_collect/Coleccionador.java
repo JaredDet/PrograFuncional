@@ -1,8 +1,6 @@
 package progra_funcional.v12_collect;
 
-import com.sun.source.tree.Tree;
 
-import java.awt.print.Book;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -41,9 +39,9 @@ public class Coleccionador {
         List<Libro> misLibros = Arrays.asList(
                 new Libro("345-89", "Sufriendo a Pedro", 2018, Genero.TERROR),
                 new Libro("923-45", "Los papeles por delante", 1998, Genero.THRILLER),
-                new Libro("978-25", "La vida de Baldomero", 2007, Genero.COMEDIA),
+                new Libro("978-25", "La vida de Baldomero", 2017, Genero.COMEDIA),
                 new Libro("923-45", "Los papeles por delante", 1998, Genero.THRILLER),
-                new Libro("978-25", "La vida de Baldomero", 2007, Genero.COMEDIA)
+                new Libro("978-25", "La vida de Baldomero", 2017, Genero.COMEDIA)
         );
 
          /*
@@ -87,7 +85,7 @@ public class Coleccionador {
 
          /*
             La función toMap retorna un objeto mapa.
-            La misma tiene 3 distintas versiones:
+            La misma tiene 3 versiones distintas:
             La primera tiene de parámetros: Function, Function, U;
             la segunda tiene de parámetros: Function, Function, BinaryOperator;
             y, la tercera tiene de parámetros:
@@ -106,7 +104,7 @@ public class Coleccionador {
                 misLibros.stream()
                         .distinct()
                         //Function.identity() = x -> x
-                        .collect(Collectors.toMap(Libro::getId, Function.identity()));
+                        .collect(Collectors.toMap(Libro::getTitulo, Function.identity()));
         System.out.println(resultado4.get("345-89") + "\n");
 
          /*
@@ -146,13 +144,56 @@ public class Coleccionador {
 
         var resultado8 =
                 misLibros.stream()
-                .distinct()
-                .map(Libro::getTitulo)
-                .collect(Collectors.joining(", "));
+                        .distinct()
+                        .map(Libro::getTitulo)
+                        .collect(Collectors.joining(", ", "[", "]"));
         System.out.println(resultado8 + "\n");
 
-         /*
-            La clase Collectors también dispone de una
+        /*
+            El mismo resultado se puede obtener
+            usando la función mapping que recibe
+            como parámetros: Mapper
+            y downstreamCollector.
+         */
+
+        var resultado9 =
+                misLibros.stream()
+                        .distinct()
+                        .collect(Collectors.mapping(Libro::getTitulo,
+                                Collectors.joining(", ")));
+        System.out.println(resultado9 + "\n");
+
+        /*
+            El método groupingBy permite crear grupos
+            que compartan un mismo valor. En el caso
+            siguiente dicho valor será el año de
+            publicación del libro.
+         */
+
+        var resultado10 =
+                misLibros.stream()
+                        .collect(Collectors.groupingBy(Libro::getAnioDePublicacion));
+        System.out.println(resultado10 + "\n");
+
+        /*
+            Al igual que antes se le puede dar un downstreamCollector.
+            Al igual que en el caso anterior, utilizaremos mapping
+            como downstreamCollector.
+         */
+
+        var resultado11 =
+                misLibros.stream()
+                .collect(Collectors.groupingBy(Libro::getAnioDePublicacion, Collectors.mapping(Libro::getTitulo, Collectors.joining(", "))));
+        System.out.println(resultado11 + "\n");
+
+        var resultado12 =
+                misLibros.stream()
+                .collect(Collectors.groupingBy(Libro::getAnioDePublicacion, TreeMap::new, Collectors.mapping(Libro::getTitulo, Collectors.joining(", "))));
+
+
+        /*
+            La clase
+            Collectors también dispone de una
             serie de métodos estáticos que retornan
             recolectores parecidos a la operación
             de reducción.
